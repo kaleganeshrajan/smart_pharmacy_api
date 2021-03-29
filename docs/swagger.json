@@ -1,0 +1,94 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/api/productsearch/{productName}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get product details",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "productName",
+                        "name": "productName",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Product"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/retailerinvoice/{buyerID}/{fromDate}/{toDate}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get retailer invoice",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "buyerId",
+                        "name": "buyerID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "fromDate",
+                        "name": "fromDate",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "toDate",
+                        "name": "toDate",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Product"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Product": {
+            "type": "object",
+            "properties": {
+                "mrp": {
+                    "type": "number"
+                },
+                "productCode": {
+                    "type": "string"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "ptr": {
+                    "type": "number"
+                },
+                "pts": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

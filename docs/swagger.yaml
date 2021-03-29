@@ -1,0 +1,60 @@
+definitions:
+  models.Product:
+    properties:
+      mrp:
+        type: number
+      productCode:
+        type: string
+      productName:
+        type: string
+      ptr:
+        type: number
+      pts:
+        type: number
+    type: object
+info:
+  contact: {}
+paths:
+  /api/productsearch/{productName}:
+    get:
+      parameters:
+      - description: productName
+        in: path
+        name: productName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Get product details
+  /api/retailerinvoice/{buyerID}/{fromDate}/{toDate}:
+    get:
+      parameters:
+      - description: buyerId
+        in: path
+        name: buyerID
+        required: true
+        type: string
+      - description: fromDate
+        in: path
+        name: fromDate
+        required: true
+        type: string
+      - description: toDate
+        in: path
+        name: toDate
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Get retailer invoice
+swagger: "2.0"
